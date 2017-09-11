@@ -3,6 +3,14 @@
 @import "./bootstrap/scss/bootstrap-reboot.scss";
 @import "./bootstrap/scss/_navbar.scss";
 @import "./bootstrap/scss/_dropdown.scss";
+@import "./bootstrap/scss/_buttons.scss";
+@import "./bootstrap/scss/_type.scss";
+@import "./bootstrap/scss/_utilities.scss";
+@import "./bootstrap/scss/mixins/_clearfix.scss";
+
+.navbar-brand__image {
+    max-height: 80px;
+}
 
 .main-nav {
     display: flex;
@@ -14,10 +22,11 @@
     text-align: right;
 }
 
-.main-nav__contacts-item {
+.main-nav__contacts-item { 
     display: block;
 }
-
+ 
 .main-nav__navbar {
-flex-basis: 100%;
-} 
+    flex-basis: 100%;
+}
+

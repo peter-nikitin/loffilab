@@ -1,3 +1,38 @@
-.navbar-brand__image {
-  max-height: 80px;
+.main-header {
+  padding: 15rem;
+  background-image: url('../img/main-bg-big.jpg');
+  background-position: center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+
+} 
+.main-header__h1 {
+  max-width: 70rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+
+
+.mainpage-nav__item{
+  padding: 5rem 3rem;
+}
+
+.mainpage-nav__item .order {
+  background-image: url("../img/mainpag-nav-order.jpg");
+}
+    .mainpage-nav__item .catalog {
+  background-image: url("../img/mainpag-nav-catalog.jpg");
+}
+  .mainpage-nav__item .services {
+  background-image: url("../img/mainpag-nav-services.jpg");
+}
+
+.mainpage-product__item {
+  text-align: center;
+}
+
+.mainpage-news__item {
+  @include clearfix;
 }
