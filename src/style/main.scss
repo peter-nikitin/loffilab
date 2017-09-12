@@ -1,13 +1,15 @@
-@import "partials/main-page.scss";
 @import "./bootstrap/scss/bootstrap-grid.scss";
 @import "./bootstrap/scss/bootstrap-reboot.scss";
 @import "./bootstrap/scss/_navbar.scss";
+@import "./bootstrap/scss/_nav.scss";
 @import "./bootstrap/scss/_dropdown.scss";
+@import "./bootstrap/scss/_card.scss";
 @import "./bootstrap/scss/_buttons.scss";
 @import "./bootstrap/scss/_type.scss";
 @import "./bootstrap/scss/_utilities.scss";
+@import "./bootstrap/scss/_media.scss";
 @import "./bootstrap/scss/mixins/_clearfix.scss";
-
+@import "partials/main-page.scss";
 .navbar-brand__image {
     max-height: 80px;
 }
@@ -15,6 +17,7 @@
 .main-nav {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .main-nav__adress {
@@ -22,11 +25,59 @@
     text-align: right;
 }
 
-.main-nav__contacts-item { 
+.main-nav__contacts-item {
     display: block;
 }
- 
+
 .main-nav__navbar {
     flex-basis: 100%;
+    .nav-link {
+        padding-left: 3rem !important;
+        padding-right: 3rem !important;
+    }
 }
 
+.order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    box-shadow: 0px 0px 8px rgba(61, 59, 75, 0.35);
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=0, Color='#3D3B4B');
+    padding: 2rem;
+}
+
+.order__text {
+    flex-basis: 80%;
+    padding: 1rem;
+}
+
+@include media-breakpoint-up(md) {
+    .order__text {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+.order__button {
+    padding: 1rem;
+}
+
+.section {
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+
+.footer {
+    background-color: $gray-900;
+    color: $white;
+    padding: 2rem 0;
+}
+
+.footer-copyright {
+    color: $gray-500;
+}
+
+.btn-primary {
+    color: white;
+}
