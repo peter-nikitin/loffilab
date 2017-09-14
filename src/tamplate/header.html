@@ -1,24 +1,27 @@
 <header>
   <div class="container">
-    <nav class="navbar navbar-default">
-      <div class="main-nav">
+    <nav class="navbar">
+      <div class="main-nav py-4">
+
         <a class="navbar-brand" href="#">
         <img src="img/logo.svg" height="50" alt="Loffilab" class="navbar-brand__image">
       </a>
-        <button class="navbar-toggler" type="button" >
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <button class="toggler" data-target"#mainNavContacts">
-          Контакты
-        </button>
-        <button  class="toggler" data-target"#mainNavAdress">
-          Адрес
-        </button>
 
-        <div class="main-nav__adress px-5" id="mainNavAdress">
-          <span class="navbar-text">
+        <div class="hidden-sm  hidden-md hidden-lg mt-4">
+          <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              Меню
+            </button>
+          <button class="btn btn-primary " role="button" data-toggle="collapse" href="#mainNavContacts" aria-expanded="false" aria-controls="mainNavContacts">
+               Контакты
+             </button>
+          <button class="btn btn-primary " data-target "#mainNavAdress" role="button" data-toggle="collapse" href="#mainNavAdress" aria-expanded="false" aria-controls="mainNavAdress">
+               Адрес
+             </button>
+        </div>
+
+
+        <div class="navbar-text main-nav__adress px-5" id="mainNavAdress">
           Москва, ул. Спиридоновка, д.4, стр.1
-         </span>
         </div>
         <div class="main-nav__contacts" id="mainNavContacts">
           <address class="contacts mb-0">
@@ -26,18 +29,22 @@
           <a href="mailto:info@loffilab.ru" class="main-nav__contacts-item mail">info@loffilab.ru</a>
         </address>
         </div>
-        <div class="main-nav__navbar mt-2">
-          <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav mr-auto mt-2 nav-fill">
+        <div class="main-nav__navbar mt-4">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle btn btn-outline-primary" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Каталог 
+                <a class="dropdown-toggle btn btn-primary" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Каталог <span class="caret"></span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Подушки</a>
-                  <a class="dropdown-item" href="#">Одеяла</a>
-                  <a class="dropdown-item" href="#">Мебель</a>
-                </div>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Услуги</a>
