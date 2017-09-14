@@ -7,11 +7,22 @@
   text-align: center;
 }
 
+// @include media-breakpoint-down(sm) {
+//    .main-header__h1 {
+//     //  font-size: 5rem;
+//    }
+
+//    .main-header {
+//      padding: 5rem 3rem;
+//    }
+// }
+ 
 .main-header__h1 {
-  max-width: 70rem;
+  width: 70rem;
+  max-width: 100%;
   margin: 0 auto;
   margin-bottom: 2rem;
-}
+} 
 
 .mainpage-nav__item {
   // padding: 5rem 3rem;
@@ -23,7 +34,7 @@
 .mainpage-nav__item_order {
   background-image: url("../img/mainpag-nav-order.jpg");
 }
-
+  
 .mainpage-nav__item_catalog {
   background-image: url("../img/mainpag-nav-catalog.jpg");
 }
@@ -35,5 +46,5 @@
 .mainpage-product__item {
   text-align: center;
 } 
-
+ 
   

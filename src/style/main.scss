@@ -1,23 +1,37 @@
-@import "./bootstrap/scss/bootstrap-grid.scss";
-@import "./bootstrap/scss/bootstrap-reboot.scss";
-@import "./bootstrap/scss/_navbar.scss";
-@import "./bootstrap/scss/_nav.scss";
-@import "./bootstrap/scss/_dropdown.scss";
-@import "./bootstrap/scss/_card.scss";
-@import "./bootstrap/scss/_buttons.scss";
-@import "./bootstrap/scss/_type.scss";
-@import "./bootstrap/scss/_utilities.scss";
-@import "./bootstrap/scss/_media.scss";
-@import "./bootstrap/scss/mixins/_clearfix.scss";
+// @import "./bootstrap/scss/bootstrap-grid.scss";
+// @import "./bootstrap/scss/bootstrap-reboot.scss";
+// @import "./bootstrap/scss/_navbar.scss";
+// @import "./bootstrap/scss/_nav.scss";
+// @import "./bootstrap/scss/_dropdown.scss";
+// @import "./bootstrap/scss/_card.scss";
+// @import "./bootstrap/scss/_buttons.scss";
+// @import "./bootstrap/scss/_type.scss";
+// @import "./bootstrap/scss/_utilities.scss";
+// @import "./bootstrap/scss/_media.scss";
+// @import "./bootstrap/scss/mixins/_clearfix.scss";
+@import "./bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "partials/main-page.scss";
 .navbar-brand__image {
     max-height: 80px;
+}
+
+// @include media-breakpoint-down(sm) {
+//    .navbar-collapse {
+//        height: 0;
+//        overflow: hidden;
+//        transition: all 0.5s;
+//    }
+// }
+
+.show {
+    height: auto;
 }
 
 .main-nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
 }
 
 .main-nav__adress {
@@ -52,12 +66,12 @@
     padding: 1rem;
 }
 
-@include media-breakpoint-up(md) {
-    .order__text {
-        padding-left: 4rem;
-        padding-right: 4rem;
-    }
-}
+// @include media-breakpoint-up(md) {
+//     .order__text {
+//         padding-left: 4rem;
+//         padding-right: 4rem;
+//     }
+// }
 
 .order__button {
     padding: 1rem;
@@ -69,13 +83,13 @@
 }
 
 .footer {
-    background-color: $gray-900;
+    background-color: $gray-darker;
     color: $white;
     padding: 2rem 0;
 }
 
 .footer-copyright {
-    color: $gray-500;
+    color: $gray-dark;
 }
 
 .btn-primary {

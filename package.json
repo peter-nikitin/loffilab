@@ -26,6 +26,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-beta"
+    "bootstrap": "^4.0.0-beta",
+    "bootstrap-sass": "^3.3.7"
   }
 }
