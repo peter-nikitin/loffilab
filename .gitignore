@@ -1,4 +1,5 @@
 node_modules
+owlcarousel
 bootstrap-4
 bootstrap-sass
 public_html
@@ -7,3 +8,4 @@ build
 *.svg
 *.png
 *.yml
+ 

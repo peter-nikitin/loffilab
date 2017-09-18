@@ -10,8 +10,14 @@
 // @import "./bootstrap/scss/_media.scss";
 // @import "./bootstrap/scss/mixins/_clearfix.scss";
 @import "./bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "./owlcarousel/src/scss/owl.carousel.scss";
+@import "./owlcarousel/src/scss/owl.theme.default.scss";
 @import "partials/main-page.scss";
+@import "partials/fotorama.css";
+@import "partials/product-page.scss";
 // main navbar
+
+
 .navbar-brand__image {
   max-height: 80px;
 }

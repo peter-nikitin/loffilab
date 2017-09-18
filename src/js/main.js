@@ -1,17 +1,27 @@
+//= partials/owl.carousel.js
+//= partials/fotorama.js
 
+var maxHeight = window.innerHeight;
 
-var mainNavbar = $('#mainNavbar'),
-    toggler = $('.toggler'),
-    togglerTarget = $('.collapse');
+$('.fotorama').fotorama({
+  width: '100%',
+  maxwidth: '100%',
+  ratio: 16/9,
+  allowfullscreen: true,
+  maxheight: maxHeight
+});
 
-
-toggler.on('click', function(){
-        if(mainNavbar.hasClass("show")) {
-            mainNavbar.removeClass('show');
-            console.log ("class remover");
-        } else {
-            mainNavbar.addClass("show");
-            console.log("class added");
+$('.owl-carousel').owlCarousel({
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
         }
-    });
- 
+    }
+})
