@@ -8,3 +8,16 @@
   // }
 
 }
+
+
+.product-grid {
+
+  &__item {
+    margin-bottom: 3rem;
+    text-align: center;
+    min-height: 250px;
+    &_img {
+      margin-bottom: 2rem;
+    }
+  }
+}
