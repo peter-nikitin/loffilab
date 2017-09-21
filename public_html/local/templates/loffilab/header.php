@@ -3,6 +3,7 @@
 }?>
 <?php
 IncludeTemplateLangFile(__FILE__);
+$mainPage = $APPLICATION->GetCurPage(false) === '/';
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
@@ -98,6 +99,12 @@ IncludeTemplateLangFile(__FILE__);
 		</div>
 	</header>
 
+<?php if ($mainPage): ?>
+
+<?php else: ?>
+
 		<main>
-<div class="container">
+			<div class="container">
 				<h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
+
+				<?endif;?>

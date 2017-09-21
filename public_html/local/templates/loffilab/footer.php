@@ -3,9 +3,14 @@
 }
 IncludeTemplateLangFile(__FILE__);
 ?>
+<?php if ($mainPage): ?>
 
+<?php else: ?>
 </div>
 </main>
+
+				<?endif;?>
+
 
   <section>
     <div class="section container">
