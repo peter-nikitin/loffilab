@@ -24,4 +24,8 @@ $('.owl-carousel').owlCarousel({
             items:5
         }
     }
+});
+
+$('#orderModal').on('shown.bs.modal', function () {
+  $('#orderName').focus()
 })

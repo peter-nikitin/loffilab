@@ -2,11 +2,56 @@
   <div class="section container">
     <div class="order">
       <div class="order__text">
-Закажите пошив текстильных изедилий по индвидиуальному проекту
+        Закажите пошив текстильных изедилий по индвидиуальному проекту
       </div>
       <div class="order__button">
-        <a class="btn btn-primary btn-lg btn-block" href="#" role="button">Заказать</a>
+        <button type="button" class="btn btn-primary btn-lg btn-block" href="#" role="button" data-toggle="modal" data-target="#orderModal">Заказать</button>
       </div>
     </div>
   </div>
 </section>
+
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="order Modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content py-4 px-5">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Заявка</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="orderName">Имя</label>
+            <input type="text" class="form-control" id="orderName" placeholder="Имя">
+          </div>
+          <div class="form-group">
+            <label for="orderEmail">E-mail</label>
+            <input type="email" class="form-control" id="orderEmail" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="orderPhone">Телефон</label>
+            <input type="text" class="form-control" id="orderPhone" placeholder="Телефон">
+          </div>
+          <div class="form-group">
+            <label for="orderComment">Комментарий</label>
+            <textarea type="text" class="form-control" id="orderComment" placeholder="Комментарий к заявке"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="orderFiles">Прикрепите эскизы</label>
+            <input type="file" id="orderFiles">
+            <p class="help-block">Вы можете прикрепить несколько файлов. Общий объем не больше 100 МБ</p>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Согласен на обработку персональных данных
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
