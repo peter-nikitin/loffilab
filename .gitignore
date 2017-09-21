@@ -2,11 +2,13 @@ node_modules
 owlcarousel
 bootstrap-4
 bootstrap-sass
-/public_html
-/public_html/*
+/public_html/bitrix
+/public_html/upload
+/public_html/site_la
 !/public_html/local
 build
 *.jpg
 *.svg
 *.png
 *.yml
+*.gif
