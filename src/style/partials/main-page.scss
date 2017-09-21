@@ -8,6 +8,18 @@
 
 }
 
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .main-header {
+    padding: 10rem;
+  }
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .main-header {
+    padding: 10rem;
+  }
+}
+
 @media (min-width: $screen-lg-min) {
   .main-header {
     padding: 15rem;
@@ -23,7 +35,7 @@
 
 
 .main-header__h1 {
-  max-width: 100%; 
+  max-width: 100%;
     margin: 0 auto 2rem;
 }
 
