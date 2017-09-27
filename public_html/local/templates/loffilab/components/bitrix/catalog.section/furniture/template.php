@@ -11,7 +11,8 @@ foreach($arResult["ITEMS"] as $cell=>$arElement):
 	$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CATALOG_ELEMENT_DELETE_CONFIRM')));
 ?>
-<div class="catalog-item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
+<div class="col-md-3 col-xs-6 col-sm-4" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
+	 <div class="product-grid__item">
 <?
 	if(is_array($arElement["PREVIEW_PICTURE"])):
 		$width = $arElement["PREVIEW_PICTURE"]["WIDTH"];
@@ -56,6 +57,7 @@ foreach($arResult["ITEMS"] as $cell=>$arElement):
 		endif;
 	endforeach;
 ?>
+ </div>
 </div>
 <?
 endforeach; // foreach($arResult["ITEMS"] as $arElement):
