@@ -19,7 +19,7 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
     $basketAction = isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '';
 }
 ?>
-
+  <div class="container">
 		<div class="row">
 
 			<div class="col-md-3 col-sm-4">
@@ -49,6 +49,7 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
 ?>
 </div>
 <div class="col-md-9 col-sm-8">
+    <h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
 <?php
 
 
@@ -313,6 +314,7 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
             }
             unset($basketAction);
             ?>
+		</div>
 		</div>
 
 

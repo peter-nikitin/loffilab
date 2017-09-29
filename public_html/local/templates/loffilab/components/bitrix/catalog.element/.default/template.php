@@ -1,4 +1,6 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
+    die();
+}
 
 use \Bitrix\Main\Localization\Loc;
 
@@ -18,91 +20,85 @@ $this->setFrameMode(true);
 $templateLibrary = array('popup', 'fx');
 $currencyList = '';
 
-if (!empty($arResult['CURRENCIES']))
-{
-	$templateLibrary[] = 'currency';
-	$currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
+if (!empty($arResult['CURRENCIES'])) {
+    $templateLibrary[] = 'currency';
+    $currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
 }
 
 $templateData = array(
-	'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
-	'TEMPLATE_LIBRARY' => $templateLibrary,
-	'CURRENCIES' => $currencyList,
-	'ITEM' => array(
-		'ID' => $arResult['ID'],
-		'IBLOCK_ID' => $arResult['IBLOCK_ID'],
-		'OFFERS_SELECTED' => $arResult['OFFERS_SELECTED'],
-		'JS_OFFERS' => $arResult['JS_OFFERS']
-	)
+    'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
+    'TEMPLATE_LIBRARY' => $templateLibrary,
+    'CURRENCIES' => $currencyList,
+    'ITEM' => array(
+        'ID' => $arResult['ID'],
+        'IBLOCK_ID' => $arResult['IBLOCK_ID'],
+        'OFFERS_SELECTED' => $arResult['OFFERS_SELECTED'],
+        'JS_OFFERS' => $arResult['JS_OFFERS']
+    )
 );
 unset($currencyList, $templateLibrary);
 
 $mainId = $this->GetEditAreaId($arResult['ID']);
 $itemIds = array(
-	'ID' => $mainId,
-	'DISCOUNT_PERCENT_ID' => $mainId.'_dsc_pict',
-	'STICKER_ID' => $mainId.'_sticker',
-	'BIG_SLIDER_ID' => $mainId.'_big_slider',
-	'BIG_IMG_CONT_ID' => $mainId.'_bigimg_cont',
-	'SLIDER_CONT_ID' => $mainId.'_slider_cont',
-	'OLD_PRICE_ID' => $mainId.'_old_price',
-	'PRICE_ID' => $mainId.'_price',
-	'DISCOUNT_PRICE_ID' => $mainId.'_price_discount',
-	'PRICE_TOTAL' => $mainId.'_price_total',
-	'SLIDER_CONT_OF_ID' => $mainId.'_slider_cont_',
-	'QUANTITY_ID' => $mainId.'_quantity',
-	'QUANTITY_DOWN_ID' => $mainId.'_quant_down',
-	'QUANTITY_UP_ID' => $mainId.'_quant_up',
-	'QUANTITY_MEASURE' => $mainId.'_quant_measure',
-	'QUANTITY_LIMIT' => $mainId.'_quant_limit',
-	'BUY_LINK' => $mainId.'_buy_link',
-	'ADD_BASKET_LINK' => $mainId.'_add_basket_link',
-	'BASKET_ACTIONS_ID' => $mainId.'_basket_actions',
-	'NOT_AVAILABLE_MESS' => $mainId.'_not_avail',
-	'COMPARE_LINK' => $mainId.'_compare_link',
-	'TREE_ID' => $mainId.'_skudiv',
-	'DISPLAY_PROP_DIV' => $mainId.'_sku_prop',
-	'DISPLAY_MAIN_PROP_DIV' => $mainId.'_main_sku_prop',
-	'OFFER_GROUP' => $mainId.'_set_group_',
-	'BASKET_PROP_DIV' => $mainId.'_basket_prop',
-	'SUBSCRIBE_LINK' => $mainId.'_subscribe',
-	'TABS_ID' => $mainId.'_tabs',
-	'TAB_CONTAINERS_ID' => $mainId.'_tab_containers',
-	'SMALL_CARD_PANEL_ID' => $mainId.'_small_card_panel',
-	'TABS_PANEL_ID' => $mainId.'_tabs_panel'
+    'ID' => $mainId,
+    'DISCOUNT_PERCENT_ID' => $mainId.'_dsc_pict',
+    'STICKER_ID' => $mainId.'_sticker',
+    'BIG_SLIDER_ID' => $mainId.'_big_slider',
+    'BIG_IMG_CONT_ID' => $mainId.'_bigimg_cont',
+    'SLIDER_CONT_ID' => $mainId.'_slider_cont',
+    'OLD_PRICE_ID' => $mainId.'_old_price',
+    'PRICE_ID' => $mainId.'_price',
+    'DISCOUNT_PRICE_ID' => $mainId.'_price_discount',
+    'PRICE_TOTAL' => $mainId.'_price_total',
+    'SLIDER_CONT_OF_ID' => $mainId.'_slider_cont_',
+    'QUANTITY_ID' => $mainId.'_quantity',
+    'QUANTITY_DOWN_ID' => $mainId.'_quant_down',
+    'QUANTITY_UP_ID' => $mainId.'_quant_up',
+    'QUANTITY_MEASURE' => $mainId.'_quant_measure',
+    'QUANTITY_LIMIT' => $mainId.'_quant_limit',
+    'BUY_LINK' => $mainId.'_buy_link',
+    'ADD_BASKET_LINK' => $mainId.'_add_basket_link',
+    'BASKET_ACTIONS_ID' => $mainId.'_basket_actions',
+    'NOT_AVAILABLE_MESS' => $mainId.'_not_avail',
+    'COMPARE_LINK' => $mainId.'_compare_link',
+    'TREE_ID' => $mainId.'_skudiv',
+    'DISPLAY_PROP_DIV' => $mainId.'_sku_prop',
+    'DISPLAY_MAIN_PROP_DIV' => $mainId.'_main_sku_prop',
+    'OFFER_GROUP' => $mainId.'_set_group_',
+    'BASKET_PROP_DIV' => $mainId.'_basket_prop',
+    'SUBSCRIBE_LINK' => $mainId.'_subscribe',
+    'TABS_ID' => $mainId.'_tabs',
+    'TAB_CONTAINERS_ID' => $mainId.'_tab_containers',
+    'SMALL_CARD_PANEL_ID' => $mainId.'_small_card_panel',
+    'TABS_PANEL_ID' => $mainId.'_tabs_panel'
 );
 $obName = $templateData['JS_OBJ'] = 'ob'.preg_replace('/[^a-zA-Z0-9_]/', 'x', $mainId);
 $name = !empty($arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE'])
-	? $arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']
-	: $arResult['NAME'];
+    ? $arResult['IPROPERTY_VALUES']['ELEMENT_PAGE_TITLE']
+    : $arResult['NAME'];
 $title = !empty($arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_TITLE'])
-	? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_TITLE']
-	: $arResult['NAME'];
+    ? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_TITLE']
+    : $arResult['NAME'];
 $alt = !empty($arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_ALT'])
-	? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_ALT']
-	: $arResult['NAME'];
+    ? $arResult['IPROPERTY_VALUES']['ELEMENT_DETAIL_PICTURE_FILE_ALT']
+    : $arResult['NAME'];
 
 $haveOffers = !empty($arResult['OFFERS']);
-if ($haveOffers)
-{
-	$actualItem = isset($arResult['OFFERS'][$arResult['OFFERS_SELECTED']])
-		? $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]
-		: reset($arResult['OFFERS']);
-	$showSliderControls = false;
+if ($haveOffers) {
+    $actualItem = isset($arResult['OFFERS'][$arResult['OFFERS_SELECTED']])
+        ? $arResult['OFFERS'][$arResult['OFFERS_SELECTED']]
+        : reset($arResult['OFFERS']);
+    $showSliderControls = false;
 
-	foreach ($arResult['OFFERS'] as $offer)
-	{
-		if ($offer['MORE_PHOTO_COUNT'] > 1)
-		{
-			$showSliderControls = true;
-			break;
-		}
-	}
-}
-else
-{
-	$actualItem = $arResult;
-	$showSliderControls = $arResult['MORE_PHOTO_COUNT'] > 1;
+    foreach ($arResult['OFFERS'] as $offer) {
+        if ($offer['MORE_PHOTO_COUNT'] > 1) {
+            $showSliderControls = true;
+            break;
+        }
+    }
+} else {
+    $actualItem = $arResult;
+    $showSliderControls = $arResult['MORE_PHOTO_COUNT'] > 1;
 }
 
 $skuProps = array();
@@ -130,130 +126,99 @@ $arParams['MESS_RELATIVE_QUANTITY_MANY'] = $arParams['MESS_RELATIVE_QUANTITY_MAN
 $arParams['MESS_RELATIVE_QUANTITY_FEW'] = $arParams['MESS_RELATIVE_QUANTITY_FEW'] ?: Loc::getMessage('CT_BCE_CATALOG_RELATIVE_QUANTITY_FEW');
 
 $positionClassMap = array(
-	'left' => 'product-item-label-left',
-	'center' => 'product-item-label-center',
-	'right' => 'product-item-label-right',
-	'bottom' => 'product-item-label-bottom',
-	'middle' => 'product-item-label-middle',
-	'top' => 'product-item-label-top'
+    'left' => 'product-item-label-left',
+    'center' => 'product-item-label-center',
+    'right' => 'product-item-label-right',
+    'bottom' => 'product-item-label-bottom',
+    'middle' => 'product-item-label-middle',
+    'top' => 'product-item-label-top'
 );
 
 $discountPositionClass = 'product-item-label-big';
-if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y' && !empty($arParams['DISCOUNT_PERCENT_POSITION']))
-{
-	foreach (explode('-', $arParams['DISCOUNT_PERCENT_POSITION']) as $pos)
-	{
-		$discountPositionClass .= isset($positionClassMap[$pos]) ? ' '.$positionClassMap[$pos] : '';
-	}
+if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y' && !empty($arParams['DISCOUNT_PERCENT_POSITION'])) {
+    foreach (explode('-', $arParams['DISCOUNT_PERCENT_POSITION']) as $pos) {
+        $discountPositionClass .= isset($positionClassMap[$pos]) ? ' '.$positionClassMap[$pos] : '';
+    }
 }
 
 $labelPositionClass = 'product-item-label-big';
-if (!empty($arParams['LABEL_PROP_POSITION']))
-{
-	foreach (explode('-', $arParams['LABEL_PROP_POSITION']) as $pos)
-	{
-		$labelPositionClass .= isset($positionClassMap[$pos]) ? ' '.$positionClassMap[$pos] : '';
-	}
+if (!empty($arParams['LABEL_PROP_POSITION'])) {
+    foreach (explode('-', $arParams['LABEL_PROP_POSITION']) as $pos) {
+        $labelPositionClass .= isset($positionClassMap[$pos]) ? ' '.$positionClassMap[$pos] : '';
+    }
 }
 ?>
 <div id="<?=$itemIds['ID']?>"
 	itemscope itemtype="http://schema.org/Product">
-		<?
-		if ($arParams['DISPLAY_NAME'] === 'Y')
-		{
-			?>
+		<?php
+        if ($arParams['DISPLAY_NAME'] === 'Y') {
+            ?>
 			<div class="container">
 					<h1 class="h1 mt-0"><?=$name?></h1>
 			  </div>
-			<?
-		}
-		?>
-
-
-            <div class="product-image">
-              <div class="container">
-                <div class="product-image__inner">
-                  <div class="fotorama" data-width="100%"    data-allowfullscreen="native"   data-ratio="16/9" >
-							<?
-
-								foreach ($arResult['PHOTOS'] as $key => $photo)
-								{
-									?>
-
-										<img src="<?=$photo['big'];?>" data-full="<?=$photo['full'];?>" alt="<?=$alt?>" title="<?=$title?>"<?=($key == 0 ? ' itemprop="image"' : '')?>>
-
-									<?
-								}
-
-							?>
-            </div>
-          </div>
+			<?php
+        }
+        ?>
+        <div class="product-image">
+          <div class="container">
+            <div class="product-image__inner">
+              <div class="fotorama" data-width="100%"    data-allowfullscreen="native"   data-ratio="16/9" >
+						     <?php foreach ($arResult['PHOTOS'] as $key => $photo) {?>
+								   <img src="<?=$photo['big']; ?>" data-full="<?=$photo['full']; ?>" alt="<?=$alt?>" title="<?=$title?>"<?=($key == 0 ? ' itemprop="image"' : '')?>>
+							   <?php }?>
+              </div>
+           </div>
+         </div>
         </div>
-      </div>
-      <div class="container">
-
+       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <?
-            if ($showDescription)
-            {
-              ?>
-              <div class="product-item-detail-tab-content active" data-entity="tab-container" data-value="description"
-                itemprop="description">
-                <?
-                if (
-                  $arResult['PREVIEW_TEXT'] != ''
-                  && (
-                    $arParams['DISPLAY_PREVIEW_TEXT_MODE'] === 'S'
+            <?php
+            if ($showDescription) {
+                ?>
+
+                <?php if ($arResult['PREVIEW_TEXT'] != '' && (       $arParams['DISPLAY_PREVIEW_TEXT_MODE'] === 'S'
                     || ($arParams['DISPLAY_PREVIEW_TEXT_MODE'] === 'E' && $arResult['DETAIL_TEXT'] == '')
                   )
-                )
-                {
-                  echo $arResult['PREVIEW_TEXT_TYPE'] === 'html' ? $arResult['PREVIEW_TEXT'] : '<p>'.$arResult['PREVIEW_TEXT'].'</p>';
+                ) {
+                    echo $arResult['PREVIEW_TEXT_TYPE'] === 'html' ? $arResult['PREVIEW_TEXT'] : '<p>'.$arResult['PREVIEW_TEXT'].'</p>';
                 }
 
-                if ($arResult['DETAIL_TEXT'] != '')
-                {
-                  echo $arResult['DETAIL_TEXT_TYPE'] === 'html' ? $arResult['DETAIL_TEXT'] : '<p>'.$arResult['DETAIL_TEXT'].'</p>';
-                }
-                ?>
-              </div>
-              <?
+                if ($arResult['DETAIL_TEXT'] != '') {
+                    echo $arResult['DETAIL_TEXT_TYPE'] === 'html' ? $arResult['DETAIL_TEXT'] : '<p>'.$arResult['DETAIL_TEXT'].'</p>';
+                } ?>
+
+              <?php
             }
             ?>
             </div>
             <div class="col-md-4">
-
-                <?
-                if (!empty($arResult['DISPLAY_PROPERTIES']))
-                {
-                  ?>
+                <?php if (!empty($arResult['DISPLAY_PROPERTIES']))
+                  { ?>
                     <table class="table">
-                    <?
-                    foreach ($arResult['DISPLAY_PROPERTIES'] as $property)
-                    {
-                      ?>
+                     <?php foreach ($arResult['DISPLAY_PROPERTIES'] as $property)
+                      {
+                        ?>
                       <tr>
                         <td><?=$property['NAME']?></td>
-                      <td><?=(
-                        is_array($property['DISPLAY_VALUE'])
-                          ? implode(' / ', $property['DISPLAY_VALUE'])
-                          : $property['DISPLAY_VALUE']
-                        )?>
-                      </td>
-                      <?
+                        <td><?=(
+                              is_array($property['DISPLAY_VALUE'])
+                                ? implode(' / ', $property['DISPLAY_VALUE'])
+                                : $property['DISPLAY_VALUE']
+                              )?>
+                        </td>
+                      <?php
                     }
-                    unset($property);
-                    ?>
+                    unset($property); ?>
                   </table>
-                  <?
+                  <?php
                 }?>
-		</div>
-		</div>
-		</div>
+		            </div>
+	            </div>
+            </div>
 
 
 
 
-<?
+<?php
 unset($actualItem, $itemIds, $jsParams);
