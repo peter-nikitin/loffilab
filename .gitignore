@@ -4,6 +4,11 @@ bootstrap-4
 bootstrap-sass
 /public_html/bitrix
 /public_html/upload
+/public_html/content
+/public_html/e-store
+/public_html/images
+/public_html/auth
+/public_html/examples
 /public_html/site_la
 !/public_html/local
 build
