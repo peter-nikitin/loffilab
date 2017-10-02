@@ -16,9 +16,13 @@
 
 $this->setFrameMode(true);
 
+
+
 ?>
+<div class="container">
+    <h1 class="h1 mt-0" id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
 <div class="row">
-	<div class="col-md-3 col-sm-4">
+
 <?php
 $APPLICATION->IncludeComponent(
     "bitrix:catalog.section.list",
@@ -61,8 +65,8 @@ if ($arParams["USE_COMPARE"] === "Y") {
 }
 
 ?>
-  </div>
-	<div class="col-md-9 col-sm-8">
+
+
 <?php
 
 if ($arParams["SHOW_TOP_ELEMENTS"] !== "N") {

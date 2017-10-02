@@ -96,7 +96,7 @@ $generalParams = array(
 $obName = 'ob'.preg_replace('/[^a-zA-Z0-9_]/', 'x', $this->GetEditAreaId($this->randString()));
 $containerName = 'catalog-top-container';
 ?>
-
+	<div class="col-md-9 col-sm-8">
 <div class="catalog-top bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>">
 	<?php
     if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS'])) {

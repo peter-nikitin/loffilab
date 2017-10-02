@@ -6,6 +6,7 @@ IncludeTemplateLangFile(__FILE__);
 $mainPage = $APPLICATION->GetCurPage(false) === '/';
 $products = CSite::InDir('/products/');
 $projects = CSite::InDir('/projects/');
+$services = CSite::InDir('/services/');
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
@@ -93,7 +94,7 @@ $projects = CSite::InDir('/projects/');
         </div>
     </header>
 
-<?php if ($mainPage || $products  || $projects) : ?>
+<?php if ($mainPage || $products  || $projects  || $services) : ?>
 
 <?php else : ?>
 

@@ -18,42 +18,59 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
 } else {
     $basketAction = isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '';
 }
+
+$arFilter = Array(
+"IBLOCK_ID"=>$arParams["IBLOCK_ID"],
+"DEPTH_LEVEL"=>$arItem['DEPTH_LEVEL']
+);
+
 ?>
   <div class="container">
+      <h1 class="h1 mt-0" id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
+      <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "template1", Array(
+        	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+        		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+        		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+        	),
+        	false
+        );?>
+
 		<div class="row">
+				<?php $APPLICATION->IncludeComponent(
+            "bitrix:catalog.section.list",
+            "",
+            array(
+                "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+                "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+                "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+                "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+                "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                "CACHE_TIME" => $arParams["CACHE_TIME"],
+                "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+                "COUNT_ELEMENTS" => $arParams["SECTION_COUNT_ELEMENTS"],
+                "TOP_DEPTH" => $arParams["SECTION_TOP_DEPTH"],
+                "SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+                "VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
+                "SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
+                "HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
+                "ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : '')
+            ),
+            $component,
+            array("HIDE_ICONS" => "Y")
+        );
+        ?>
 
-			<div class="col-md-3 col-sm-4">
-				<?php
-                $APPLICATION->IncludeComponent(
-                    "bitrix:catalog.section.list",
-                    "",
-                    array(
-                        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-                        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                        "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-                        "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-                        "CACHE_TYPE" => $arParams["CACHE_TYPE"],
-                        "CACHE_TIME" => $arParams["CACHE_TIME"],
-                        "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-                        "COUNT_ELEMENTS" => $arParams["SECTION_COUNT_ELEMENTS"],
-                        "TOP_DEPTH" => $arParams["SECTION_TOP_DEPTH"],
-                        "SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-                        "VIEW_MODE" => $arParams["SECTIONS_VIEW_MODE"],
-                        "SHOW_PARENT_NAME" => $arParams["SECTIONS_SHOW_PARENT_NAME"],
-                        "HIDE_SECTION_NAME" => (isset($arParams["SECTIONS_HIDE_SECTION_NAME"]) ? $arParams["SECTIONS_HIDE_SECTION_NAME"] : "N"),
-                        "ADD_SECTIONS_CHAIN" => (isset($arParams["ADD_SECTIONS_CHAIN"]) ? $arParams["ADD_SECTIONS_CHAIN"] : '')
-                    ),
-                    $component,
-                    array("HIDE_ICONS" => "Y")
-                );
-?>
-</div>
+<? if ($GLOBALS['sectionCount'] > 0) {
+  ?>
 <div class="col-md-9 col-sm-8">
-    <h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
-<?php
+  <?
+} else {
+  ?>
+<div class="col-xs-12">
+  <?
+}?>
 
-
-                $intSectionID = $APPLICATION->IncludeComponent(
+        <?php   $intSectionID = $APPLICATION->IncludeComponent(
                     "bitrix:catalog.section",
                     "",
                     array(
@@ -181,7 +198,6 @@ if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMO
                     $component
                 );
                 ?>
-			</div>
 			</div>
 			<?php
             $GLOBALS['CATALOG_CURRENT_SECTION_ID'] = $intSectionID;

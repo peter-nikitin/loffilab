@@ -33,35 +33,76 @@ IncludeTemplateLangFile(__FILE__);
           <h4 class="modal-title">Заявка</h4>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="orderName">Имя</label>
-              <input type="text" class="form-control" id="orderName" placeholder="Имя">
-            </div>
-            <div class="form-group">
-              <label for="orderEmail">E-mail</label>
-              <input type="email" class="form-control" id="orderEmail" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="orderPhone">Телефон</label>
-              <input type="text" class="form-control" id="orderPhone" placeholder="Телефон">
-            </div>
-            <div class="form-group">
-              <label for="orderComment">Комментарий</label>
-              <textarea type="text" class="form-control" id="orderComment" placeholder="Комментарий к заявке"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="orderFiles">Прикрепите эскизы</label>
-              <input type="file" id="orderFiles">
-              <p class="help-block">Вы можете прикрепить несколько файлов. Общий объем не больше 100 МБ</p>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Согласен на обработку персональных данных
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Отправить заявку</button>
-          </form>
+          <?$APPLICATION->IncludeComponent(
+              	"altasib:feedback.form",
+              	"orderModal",
+              	array(
+              		"ACTIVE_ELEMENT" => "Y",
+              		"ADD_HREF_LINK" => "Y",
+              		"ALX_LINK_POPUP" => "N",
+              		"BBC_MAIL" => "",
+              		"CATEGORY_SELECT_NAME" => "Выберите категорию",
+              		"CHECKBOX_TYPE" => "CHECKBOX",
+              		"CHECK_ERROR" => "Y",
+              		"COLOR_SCHEME" => "BRIGHT",
+              		"EVENT_TYPE" => "ALX_FEEDBACK_FORM",
+              		"FB_TEXT_NAME" => "",
+              		"FB_TEXT_SOURCE" => "PREVIEW_TEXT",
+              		"FORM_ID" => "1",
+              		"IBLOCK_ID" => "15",
+              		"IBLOCK_TYPE" => "altasib_feedback",
+              		"INPUT_APPEARENCE" => array(
+              			0 => "DEFAULT",
+              		),
+              		"JQUERY_EN" => "jquery",
+              		"LINK_SEND_MORE_TEXT" => "Отправить ещё одно сообщение",
+              		"LOCAL_REDIRECT_ENABLE" => "N",
+              		"MASKED_INPUT_PHONE" => array(
+              			0 => "PHONE",
+              		),
+              		"MESSAGE_OK" => "Ваше сообщение было успешно отправлено",
+              		"NAME_ELEMENT" => "ALX_DATE",
+              		"PROPERTY_FIELDS" => array(
+              			0 => "PHONE",
+              			1 => "FIO",
+              			2 => "EMAIL",
+              			3 => "FILE",
+              			4 => "FEEDBACK_TEXT",
+              		),
+              		"PROPERTY_FIELDS_REQUIRED" => array(
+              			0 => "PHONE",
+              			1 => "FIO",
+              		),
+              		"PROPS_AUTOCOMPLETE_EMAIL" => array(
+              			0 => "EMAIL",
+              		),
+              		"PROPS_AUTOCOMPLETE_NAME" => array(
+              			0 => "FIO",
+              		),
+              		"PROPS_AUTOCOMPLETE_PERSONAL_PHONE" => array(
+              			0 => "PHONE",
+              		),
+              		"PROPS_AUTOCOMPLETE_VETO" => "N",
+              		"SECTION_FIELDS_ENABLE" => "N",
+              		"SECTION_MAIL_ALL" => "nikitin.p.94@gmail.com",
+              		"SEND_IMMEDIATE" => "Y",
+              		"SEND_MAIL" => "N",
+              		"SHOW_LINK_TO_SEND_MORE" => "Y",
+              		"SHOW_MESSAGE_LINK" => "Y",
+              		"USERMAIL_FROM" => "N",
+              		"USER_CONSENT" => "Y",
+              		"USER_CONSENT_ID" => "1",
+              		"USER_CONSENT_INPUT_LABEL" => "",
+              		"USER_CONSENT_IS_CHECKED" => "Y",
+              		"USER_CONSENT_IS_LOADED" => "N",
+              		"USE_CAPTCHA" => "N",
+              		"WIDTH_FORM" => "100%",
+              		"COMPONENT_TEMPLATE" => "orderModal",
+              		"COLOR_THEME" => "",
+              		"COLOR_OTHER" => "#D8A654"
+              	),
+              	false
+              );?>
         </div>
       </div>
       <!-- /.modal-content -->
@@ -74,40 +115,35 @@ IncludeTemplateLangFile(__FILE__);
     <div class="footer">
       <div class="container">
         <div class="row mb-4">
-        <nav >
-          <div class="col-md-10 col-sm-8  col-xs-6">
-            <ul class="nav nav-pills ">
-              <li>
-                <a class="footer-nav " href="#">Главная</a>
-              </li>
-              <li>
-                <a class="footer-nav" href="#">Контакты</a>
-              </li>
-              <li>
-                <a class="footer-nav" href="#">Сотрудничество</a>
-              </li>
-              <li>
-                <a class="footer-nav" href="#">Услуги</a>
-              </li>
-              <li>
-                <a class="footer-nav" href="#">О нас</a>
-              </li>
-              <li>
-                <a class="footer-nav" href="#">Каталог</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-2 col-sm-4 mb-3 col-xs-6  ">
-            <ul class="nav nav-pills ">
-              <li class="pull-right">
-                <a class="nav-link " href="#"><img src="<?=SITE_TEMPLATE_PATH?>/img/facebook.svg" alt="Facebook logo" width="30px"></a>
-              </li>
-              <li class="pull-right">
-                <a class="nav-link" href="#"><img src="<?=SITE_TEMPLATE_PATH?>/img/instagram.svg" alt="instagram logo" width="30px"></a>
-              </li>
-            </ul>
-              </div>
-        </nav>
+          <nav >
+            <div class="col-md-10 col-sm-8  col-xs-6">
+              <?$APPLICATION->IncludeComponent("bitrix:menu", "footer-nav", Array(
+                	"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+                		"CHILD_MENU_TYPE" => "",	// Тип меню для остальных уровней
+                		"DELAY" => "N",	// Откладывать выполнение шаблона меню
+                		"MAX_LEVEL" => "1",	// Уровень вложенности меню
+                		"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+                		"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                		"MENU_CACHE_TYPE" => "N",	// Тип кеширования
+                		"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+                		"ROOT_MENU_TYPE" => "bottom",	// Тип меню для первого уровня
+                		"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+                		"COMPONENT_TEMPLATE" => ".default"
+                	),
+                	false
+                );?>
+            </div>
+            <div class="col-md-2 col-sm-4 mb-3 col-xs-6  ">
+              <ul class="nav nav-pills ">
+                <li class="pull-right">
+                  <a class="nav-link " href="#"><img src="<?=SITE_TEMPLATE_PATH?>/img/facebook.svg" alt="Facebook logo" width="30px"></a>
+                </li>
+                <li class="pull-right">
+                  <a class="nav-link" href="#"><img src="<?=SITE_TEMPLATE_PATH?>/img/instagram.svg" alt="instagram logo" width="30px"></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
 
         <address>

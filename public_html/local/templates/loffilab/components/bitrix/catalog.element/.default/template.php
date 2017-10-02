@@ -155,6 +155,13 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
             ?>
 			<div class="container">
 					<h1 class="h1 mt-0"><?=$name?></h1>
+          <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "template1", Array(
+              "PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+                "SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+                "START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+              ),
+              false
+            );?>
 			  </div>
 			<?php
         }
