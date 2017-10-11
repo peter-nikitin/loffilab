@@ -14,8 +14,11 @@ $services = CSite::InDir('/services/');
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/css/main.css">
-          <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Serif:700&amp;subset=cyrillic" rel="stylesheet">
-<?$APPLICATION->ShowHead();?>
+      <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Serif:700&amp;subset=cyrillic" rel="stylesheet">
+      <link rel="icon" href="favicon.png" sizes="16x16" type="image/png">
+      <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/vnd.microsoft.icon">
+      <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+      <?$APPLICATION->ShowHead();?>
 
     <!--[if lte IE 6]>
     <style type="text/css">
@@ -87,8 +90,29 @@ $services = CSite::InDir('/services/');
                                         ),
                                     false
                                 );?>
+
+                                <ul class="nav navbar-nav navbar-right">
+
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <img src="<?=SITE_TEMPLATE_PATH?>/img/search.svg" alt="Search icon" width="16px">
+                                      </a>
+                                      <div class="dropdown-menu py-3 px-4" style="width: 300px">
+
+                                        <?$APPLICATION->IncludeComponent("bitrix:search.form", "mainnav-search", Array(
+                                            "PAGE" => "#SITE_DIR#search/index.php",	// Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
+                                              "USE_SUGGEST" => "N",	// Показывать подсказку с поисковыми фразами
+                                            ),
+                                            false
+                                          );?>
+                                     </div>
+                                    </li>
+                                  </ul>
+
+
                         </div>
                     </div>
+
                 </div>
             </nav>
         </div>

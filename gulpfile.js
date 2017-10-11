@@ -19,6 +19,7 @@ var gulp = require('gulp'),
             html: 'build/',
             js: 'build/js/',
             css: 'build/css/',
+            cssProd: 'new.loffilab.ru/www/local/templates/loffilab/css/',
             img: 'build/img/',
             fonts: 'build/fonts/'
         },
@@ -74,6 +75,7 @@ var gulp = require('gulp'),
             .pipe(cssmin()) //Сожмем
             .pipe(sourcemaps.write())
             .pipe(gulp.dest(path.build.css)) //И в build
+            .pipe(gulp.dest(path.build.cssProd)) //И в build
             .pipe(reload({stream: true}));
     });
 

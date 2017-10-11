@@ -116,7 +116,7 @@ IncludeTemplateLangFile(__FILE__);
       <div class="container">
         <div class="row mb-4">
           <nav >
-            <div class="col-md-10 col-sm-8  col-xs-6">
+            <div class="col-md-6 col-sm-6  col-xs-6">
               <?$APPLICATION->IncludeComponent("bitrix:menu", "footer-nav", Array(
                 	"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
                 		"CHILD_MENU_TYPE" => "",	// Тип меню для остальных уровней
@@ -132,8 +132,27 @@ IncludeTemplateLangFile(__FILE__);
                 	),
                 	false
                 );?>
+                <div class="footer-copyright mt-5">
+
+                  <small> Компания «Loffilab» Все права защищены. © 1998-2015. Нелицензированное использование материалов данного сайта запрещено</small>
+
+                </div>
             </div>
-            <div class="col-md-2 col-sm-4 mb-3 col-xs-6  ">
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+              <address>
+                <div class="mb-3">
+                  Москва, ул. Спиридоновка, д.4, стр.1
+                </div>
+                <div class="mb-3">
+                  8 (499) 404-12-55
+                </div>
+                <div >
+                  <a href="mailto:info@loffilab.ru">info@loffilab.ru</a>
+                </div>
+              </address>
+            </div>
+            <div class="col-md-2 col-sm-2 mb-3 col-xs-6  ">
               <ul class="nav nav-pills ">
                 <li class="pull-right">
                   <a class="nav-link " href="#"><img src="<?=SITE_TEMPLATE_PATH?>/img/facebook.svg" alt="Facebook logo" width="30px"></a>
@@ -144,31 +163,6 @@ IncludeTemplateLangFile(__FILE__);
               </ul>
             </div>
           </nav>
-        </div>
-
-        <address>
-          <div class="row mb-3">
-            <div class="col-md-8 col-xs-6">
-              <div class="px-3">
-                  Москва, ул. Спиридоновка, д.4, стр.1
-              </div>
-
-            </div>
-            <div class="col-md-4  col-xs-6 text-right">
-              <div class="mb-3">
-                8 (499) 404-12-55
-              </div>
-              <div >
-                <a href="mailto:info@loffilab.ru">info@loffilab.ru</a>
-              </div>
-            </div>
-
-          </div>
-        </address>
-        <div class="footer-copyright">
-
-          <small> Компания «Loffilab» Все права защищены. © 1998-2015. Нелицензированное использование материалов данного сайта запрещено</small>
-
         </div>
       </div>
     </div>

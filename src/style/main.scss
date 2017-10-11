@@ -29,6 +29,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  &__search {
+  width: 350px;
+  max-width: 100%;
+
+  @include clearfix();
+
+  }
 }
 
 .main-nav__adress {
@@ -71,12 +79,16 @@
 
 .main-nav__navbar {
   flex-basis: 100%;
-
+@media (min-width: $screen-sm-min) {
   .nav-link {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
   }
 }
+
+}
+
+
 
 .navbar address {
   margin-bottom: 0;
