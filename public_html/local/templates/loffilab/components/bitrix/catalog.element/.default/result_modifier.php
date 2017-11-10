@@ -35,4 +35,16 @@ if (!empty($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
         $PHOTOS[] = $getPhotoForSlider($v);
     }
 }
+
+$PHOTOS_Desc = array();
+if (!empty($arResult['DETAIL_PICTURE'])) {
+    $PHOTOS[] = $getPhotoForSlider($arResult['DETAIL_PICTURE']['ID']);
+}
+if (!empty($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'])) {
+    foreach ($arResult['PROPERTIES']['MORE_PHOTO']['VALUE'] as $v) {
+        $PHOTOS[] = $getPhotoForSlider($v);
+    }
+}
+
+
 $arResult['PHOTOS'] = $PHOTOS;

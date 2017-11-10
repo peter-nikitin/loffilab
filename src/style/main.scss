@@ -155,6 +155,19 @@
   background-color: $gray-darker;
   color: $white;
   padding: 4rem 0;
+  .nav {
+    a {
+      color: $white;
+    }
+  }
+  address {
+    a {
+        color: $white;
+        &:hover {
+          color: inherit;
+        }
+    }
+  }
 }
 // a.footer-nav  {
 //   padding: 0 !important;
